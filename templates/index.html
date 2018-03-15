@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-xs-12">
+				<h1 align="center">
+					Light 1
+				</h1>
+				{% if light1st == "1" %}
+				<p class="" align="center">Turned on</p> 
+				<form action="/light1cmd" method="post">
+					<button class="btn btn-block btn-danger" name="button" type="submit" value="0">Turn off</button>
+				</form>
+        		{% elif light1st == "0" %}
+        		<p class="" align="center">Turned off</p>
+				<form action="/light1cmd" method="post">
+					<button class="btn btn-block btn-success" name="button" type="submit" value="1">Turn On</button>
+				</form>
+        		{% endif %}		
+
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<h1 align="center">
+					Light 2
+				</h1>
+				{% if light2st == "1" %}
+				<p class="" align="center">Turned on</p> 
+				<form action="/light2cmd" method="post">
+					<button class="btn btn-block btn-danger" name="button" type="submit" value="0">Turn off</button>
+				</form>
+        		{% elif light2st == "0" %}
+        		<p class="" align="center">Turned off</p>
+				<form action="/light2cmd" method="post">
+					<button class="btn btn-block btn-success" name="button" type="submit" value="1">Turn On</button>
+				</form>
+        		{% endif %}	
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<h1 align="center">Temparature</h1>
+				<p>The temparature is {{temp}} Centigrade</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}
